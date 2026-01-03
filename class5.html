@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Day 5 practice </title>
+</head>
+
+<body>
+    <h1>JavaScript Day 5</h1>
+    <script>
+        alert("javascript practice if...else + else if + else");
+        let name = "Ali";
+        let age = 20;
+
+        // if
+        if (name === "Ali") {
+            console.log("Hello Ali");
+        }
+
+        // if...else
+        if (age >= 18) {
+            console.log("Ali is an adult");
+        } else {
+            console.log("Ali is not an adult");
+        }
+
+        // if...else if...else
+        if (age >= 30) {
+            console.log("Ali is above 30");
+        } else if (age >= 18) {
+            console.log("Ali is an adult");
+        } else {
+            console.log("Ali is a child");
+        }
+
+        let myAge = 18;
+        let youeage = 20;
+        if (myAge > 18 || youeage > myAge) {
+            console.log("you can drive")
+        } else {
+            console.log("you can not drive")
+        }
+
+        let aliAge = 20;
+        let hasID = true;
+
+        if (age >= 18 && hasID) {
+            console.log("Allowed");
+        }
+
+        let isAdmin = false;
+        let isEditor = true;
+
+        if (isAdmin || isEditor) {
+            console.log("Access granted");
+        }
+
+    </script>
+</body>
+
+</html>
