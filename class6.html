@@ -27,10 +27,12 @@
         console.log(passFail);
 
         let studentMarks = 100;
-        let studentGrade =
-         studentMarks >= 45 && studentMarks <= 60 ? "C" : studentMarks >= 61 && studentMarks <= 75 ? "B" : studentMarks >= 76 && studentMarks <= 100 ? "A" : "Enter valid number";
+        let studentGrade = studentMarks >= 45 && studentMarks <= 60 ? "C" : studentMarks >= 61 && studentMarks <= 75 ? "B" : studentMarks >= 76 && studentMarks <= 100 ? "A" : "Enter valid number";
         console.log(studentGrade);
 
+        let examMarks = 100;
+        let grade = examMarks < 0 || examMarks > 100 ? "Enter valid number" : examMarks >= 76 ? "A" : examMarks >= 61 ? "B" : examMarks >= 45 ? "C" : "Fail";
+        console.log(grade);
 
     </script>
 </body>
