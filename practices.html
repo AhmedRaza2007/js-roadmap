@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Click the Button to Show Name</h1>
+<p id="name"></p>
+<button onclick="showName()">Show Name</button>
+<br><br>
+
+<h1 id="title">Click the Button to Increase Counter</h1>
+<p id="count">0</p>
+<button onclick="increaseCount()">Increase</button>
+
+<script>
+let counter = 0;
+
+function increaseCount() {
+  counter++;
+  document.getElementById("count").innerHTML = counter;
+  
+  document.getElementById("title").innerText =
+    "Button clicked! Count is: " + count;
+}
+
+let firstName = "Ahmed";
+let lastName = "Raza";
+
+function showName() {
+  document.getElementById("name").innerHTML = firstName + " " + lastName;
+}
+
+</script>
+
+</body>
+</html>
