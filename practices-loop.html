@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practices-loop</title>
+</head>
+<body>
+    <h1>Days of the Week</h1>
+    <ul id="daysList"></ul>
+
+    <h1>Month of the Year</h1>
+    <ul id="monthsList"></ul>
+
+    <h1>All Countries</h1>
+    <ul id="countriesList"></ul>
+
+    <h1></h1>
+    <script>
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const daysList = document.getElementById("daysList");
+
+        for (let i = 0; i < days.length; i++) {
+            const daysListItem = document.createElement("li");
+            daysListItem.textContent = days[i];
+            daysList.appendChild(daysListItem);
+        }
+
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const monthsList = document.getElementById("monthsList");
+        for (let i = 0; i < months.length; i++) {
+            const monthsListItem = document.createElement("li");
+            monthsListItem.textContent = months[i];
+            monthsList.appendChild(monthsListItem);
+        }
+
+        const countries = ["Pakistan", "India", "USA", "UK", "Canada", "Australia", "Germany", "France", "Italy", "Spain"];
+        const countriesList = document.getElementById("countriesList");
+        for (let i = 0; i < countries.length; i++) {
+            const countriesListItem = document.createElement("li");
+            countriesListItem.textContent = countries[i];
+            countriesList.appendChild(countriesListItem);
+        }
+    </script>
+</body>
+</html>
