@@ -15,6 +15,9 @@
     <h1>All Countries</h1>
     <ul id="countriesList"></ul>
 
+    <h1>Objects practices</h1>
+    <ul id="objectsList"></ul>
+
     <h1></h1>
     <script>
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -41,9 +44,25 @@
         const countriesList = document.getElementById("countriesList");
         for (let i = 0; i < countries.length; i++) {
             const countriesListItem = document.createElement("li");
-            countriesListItem.textContent = countries[i];
+            countriesListItem.innerText = countries[i];
             countriesList.appendChild(countriesListItem);
         }
+
+        const objectsName = {
+            firstName: "Ahmed",
+            lastName: "Raza",
+            age: 20,
+            city: "Karachi"
+        }
+        console.log(objectsName);
+
+        const objects = [
+            { name: "Ahmed", age: 25, city: "Karachi", status: true},
+            { name: "Sara", age: 22, city: "Lahore" },
+            { name: "Ali", age: 30, city: "New York" },
+            { name: "Eman", age: 28, city: "London" }
+        ];
+        console.log(objects);
     </script>
 </body>
 </html>
