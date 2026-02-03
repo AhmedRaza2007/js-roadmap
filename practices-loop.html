@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>practices-loop</title>
 </head>
+
 <body>
     <h1>Days of the Week</h1>
     <ul id="daysList"></ul>
@@ -18,7 +20,8 @@
     <h1>Objects practices</h1>
     <ul id="objectsList"></ul>
 
-    <h1></h1>
+    <h1>table practices-loop</h1>
+    <table id="dataTable"></table>
     <script>
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const daysList = document.getElementById("daysList");
@@ -28,6 +31,7 @@
             daysListItem.textContent = days[i];
             daysList.appendChild(daysListItem);
         }
+        console.log(days);
 
         const months = [
             "January", "February", "March", "April", "May", "June",
@@ -57,12 +61,37 @@
         console.log(objectsName);
 
         const objects = [
-            { name: "Ahmed", age: 25, city: "Karachi", status: true},
+            { name: "Ahmed", age: 25, city: "Karachi", status: true },
             { name: "Sara", age: 22, city: "Lahore" },
             { name: "Ali", age: 30, city: "New York" },
             { name: "Eman", age: 28, city: "London" }
         ];
         console.log(objects);
+
+        const data = [
+            { id: 1, name: "Ahmed", age: 25, city: "Karachi" },
+            { id: 2, name: "Sara", age: 22, city: "Lahore" }
+        ];
+
+        const table = document.getElementById("dataTable");
+
+        table.innerHTML = `
+          <tr>
+    <th>ID</th><th>Name</th><th>Age</th><th>City</th>
+  </tr>
+`;
+        for (let i = 0; i < data.length; i++) {
+            table.innerHTML += `
+    <tr>
+      <td>${data[i].id}</td>
+      <td>${data[i].name}</td>
+      <td>${data[i].age}</td>
+      <td>${data[i].city}</td>
+    </tr>
+  `;
+        }
+
     </script>
 </body>
+
 </html>
