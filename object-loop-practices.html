@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object Loop practices</title>
+</head>
+
+<body>
+    <h1>Object Loop Practices</h1>
+    <table id="objectsList" border="1px" style="text-align: center; padding: 10px;"></table>
+    <br>
+    <br>
+    <table id="objectsList2" border="1px" style="text-align: center; padding: 10px;"></table>
+    <br>
+    <table id="mobilesData" border="1px" style="text-align: center; padding: 10px;"></table>
+    <script>
+        const objectsName = [
+            { no: 1, name: "Name", role: "Role", Salary: "Salary", },
+            { no: 2, fullName: "Ahmed Raza", Position: "Web Developer", Salary: 50000, },
+            { no: 3, fullName: "Ali Raza", Position: "Graphic Designer", Salary: 40000, },
+            { no: 4, fullName: "Umer Farooq", Position: "SEO Expert", Salary: 35000, },
+            { no: 5, fullName: "Sara Khan", Position: "Content Writer", Salary: 30000, },
+            { no: 6, fullName: "Sara Khan", Position: "Content Writer", Salary: 30000, },
+        ]
+        const objectsList = document.getElementById("objectsList");
+        for (let i = 0; i < objectsName.length; i++) {
+            const tableData = objectsName[i];
+            const rows = document.createElement("tr");
+            for (const key in tableData) {
+                const th = document.createElement("td");
+                th.textContent = tableData[key];
+                rows.append(th);
+            }
+            objectsList.append(rows);
+        }
+
+        const studentsData = [
+            { id: 1, name: "Name", course: "Course", marks: "Marks" },
+            { id: 2, name: "Hassan", course: "JS", marks: 85 },
+            { id: 3, name: "Usman", course: "HTML", marks: 75 },
+            { id: 4, name: "Bilal", course: "CSS", marks: 80 },
+            { id: 5, name: "Zain", course: "React", marks: 90 }
+        ];
+        const objectsList2 = document.getElementById("objectsList2");
+        for (let i = 0; i < studentsData.length; i++) {
+            const tableData = studentsData[i];
+            const rows = document.createElement("tr");
+            for (const key in tableData) {
+                const th = document.createElement("td");
+                th.textContent = tableData[key];
+                rows.append(th);
+            }
+            objectsList2.append(rows);
+        }
+
+        const mobilesData = [
+            { id: 1, name: "Name", company: "Company", price: "Price" },
+            { id: 2, name: "iPhone 13", company: "Apple", price: 220000 },
+            { id: 3, name: "Galaxy S22", company: "Samsung", price: 180000 },
+            { id: 4, name: "Redmi Note", company: "Xiaomi", price: 50000 },
+            { id: 5, name: "Realme 11", company: "Realme", price: 45000 }
+        ];
+        const dataTable = document.getElementById("mobilesData");
+        for (let i = 0; i < mobilesData.length; i++) {
+            const tableData = mobilesData[i];
+            const rows = document.createElement("tr");
+            for (const key in tableData) {
+                const th = document.createElement("td");
+                th.textContent = tableData[key];
+                rows.append(th);
+            }
+            dataTable.append(rows);
+        }
+    </script>
+</body>
+
+</html>
