@@ -30,20 +30,23 @@
             const li = document.createElement("li");
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
+            checkbox.id = "todo" + item.id;
             checkbox.checked = item.completed;
-            const span = document.createElement("span");
-            span.textContent = " " + item.todo;
+            const label = document.createElement("label");
+            label.setAttribute("for", checkbox.id);
+            label.textContent = "" + item.todo;
+            label.style.cursor = "pointer";
             li.appendChild(checkbox);
-            li.appendChild(span);
+            li.appendChild(label);
             todoList.appendChild(li);
             if (item.completed) {
-                span.style.textDecoration = "line-through";
+                label.style.textDecoration = "line-through";
             }
             checkbox.addEventListener("change", function () {
                 if (checkbox.checked) {
-                    span.style.textDecoration = "line-through";
+                    label.style.textDecoration = "line-through";
                 } else {
-                    span.style.textDecoration = "none";
+                    label.style.textDecoration = "none";
                 }
             });
         }
