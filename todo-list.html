@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todolist.css">
+    <title>todos</title>
+</head>
+<body>
+    <div class="todoapp">
+        <header class="todo-header">
+            <h1>todos</h1>
+            <form class="new-todo-container" id="todoForm">
+                <button type="button" class="toggle-all" onclick="toggleAll()">∨</button>
+                <input type="text" class="new-todo" id="newTodo" placeholder="What needs to be done?">
+            </form>
+        </header>
+
+        <main>
+            <ul class="todo-list" id="todoList">
+                <li class="todo-item">
+                    <input type="checkbox" id="todo1" onchange="updateDone(this)">
+                    <label for="todo1">hi</label>
+                    <button type="button" class="destroy" onclick="deleteTodo(this)">×</button>
+                </li>
+            </ul>
+        </main>
+
+        <footer class="footer">
+            <span class="todo-count" id="todoCount"><strong>1</strong> item left!</span>
+            <div class="filters">
+                <button class="selected" onclick="filterTodos('all', this)">All</button>
+                <button onclick="filterTodos('active', this)">Active</button>
+                <button onclick="filterTodos('completed', this)">Completed</button>
+            </div>
+            <button type="button" class="clear-completed" id="clearBtn" onclick="clearCompleted()">Clear completed</button>
+        </footer>
+    </div>
+
+    <p class="info">Add new todo - type and press Enter</p>
+
+    <script>
+        // Form submit - naya todo add karna
+        document.getElementById('todoForm').onsubmit = function() {
+            const input = document.getElementById('newTodo');
+            const text = input.value.trim();
+            if (text === '') return false;
+            addTodo(text);
+            input.value = '';
+            return false;
+        };
+
+        // Naya todo add karne ka function
+        function addTodo(text) {
+            const list = document.getElementById('todoList');
+            const li = document.createElement('li');
+            li.className = 'todo-item';
+            const id = 'todo-' + Date.now();
+            li.innerHTML = '<input type="checkbox" id="' + id + '" onchange="updateDone(this)">' +
+                '<label for="' + id + '">' + text + '</label>' +
+                '<button type="button" class="destroy" onclick="deleteTodo(this)">×</button>';
+            list.appendChild(li);
+            updateCount();
+        }
+
+        // Checkbox change - done class add/remove (filter ke liye)
+        function updateDone(checkbox) {
+            const li = checkbox.parentElement;
+            li.classList.toggle('done', checkbox.checked);
+            updateCount();
+        }
+
+        // Todo delete karna
+        function deleteTodo(btn) {
+            btn.parentElement.remove();
+            updateCount();
+        }
+
+        // Sabko complete ya incomplete karna
+        function toggleAll() {
+            const checkboxes = document.querySelectorAll('.todo-item input[type="checkbox"]');
+            let sabDone = true;
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (!checkboxes[i].checked) {
+                    sabDone = false;
+                    break;
+                }
+            }
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = !sabDone;
+                checkboxes[i].closest('.todo-item').classList.toggle('done', !sabDone);
+            }
+            updateCount();
+        }
+
+        // Filter - body pe class add karke CSS se hide/show
+        function filterTodos(type, btn) {
+            document.body.className = 'filter-' + type;
+            const buttons = document.querySelectorAll('.filters button');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('selected');
+            }
+            btn.classList.add('selected');
+        }
+
+        function updateCount() {
+            const checkboxes = document.querySelectorAll('.todo-item input[type="checkbox"]');
+            let count = 0;
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (!checkboxes[i].checked) count++;
+            }
+            const s = count === 1 ? '' : 's';
+            document.getElementById('todoCount').innerHTML = '<strong>' + count + '</strong> item' + s + ' left!';
+            document.getElementById('clearBtn').disabled = document.querySelectorAll('.todo-item.done').length === 0;
+        }
+
+        function clearCompleted() {
+            const doneItems = document.querySelectorAll('.todo-item.done');
+            for (let i = doneItems.length - 1; i >= 0; i--) {
+                doneItems[i].remove();
+            }
+            updateCount();
+        }
+    </script>
+</body>
+</html>
