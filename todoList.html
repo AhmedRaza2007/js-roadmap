@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Todo</title>
+<link rel="stylesheet" href="list.css">
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Todo App</h2>
+
+<form onsubmit="add();return false;">
+<input id="todolist" placeholder="What needs to be done?">
+</form>
+
+<ul id="list"></ul>
+<p id="count">0 item left</p>
+
+</div>
+
+<script>
+
+function add(){
+
+const input=document.getElementById("todolist");
+const text=input.value.trim();
+
+if(text==="") return;
+
+const li=document.createElement("li");
+
+const cb=document.createElement("input");
+cb.type="checkbox";
+
+const span=document.createElement("span");
+span.innerText=text;
+
+const del=document.createElement("button");
+del.innerText="X";
+
+li.appendChild(cb);
+li.appendChild(span);
+li.appendChild(del);
+
+document.getElementById("list").appendChild(li);
+
+cb.onchange=function(){
+li.classList.toggle("done",cb.checked);
+update();
+};
+
+del.onclick=function(){
+li.remove();
+update();
+};
+
+input.value="";
+update();
+}
+
+function update(){
+
+const items=document.querySelectorAll("#list li");
+
+let left=0;
+
+for(let i=0;i<items.length;i++){
+if(!items[i].querySelector("input").checked){
+left++;
+}
+}
+
+document.getElementById("count").innerText=
+left+" item left";
+}
+
+</script>
+
+</body>
+</html>
