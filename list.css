@@ -1,4 +1,4 @@
-body{
+/* body{
 font-family:Arial;
 background:#f5f5f5;
 text-align:center;
@@ -34,4 +34,8 @@ color:gray;
 
 button{
 margin-left:5px;
-}
+} */
+    #list li.done label { text-decoration: line-through; color: #9ca3af; }
+    .brand {
+            color: #cc3a3a;
+        }

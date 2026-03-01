@@ -13,7 +13,7 @@
         <header class="todo-header">
             <h1>todos</h1>
             <form class="new-todo-container" id="todoForm">
-                <button type="button" class="toggle-all" onclick="toggleAll()">∨</button>
+                <button type="button" class="toggle-all" onclick="toggleAll()"><i class="fa-solid fa-angle-down"></i></button>
                 <input type="text" class="new-todo" id="newTodo" placeholder="What needs to be done?">
             </form>
         </header>
@@ -23,7 +23,7 @@
                 <li class="todo-item">
                     <input type="checkbox" id="todo1" onchange="updateDone(this)">
                     <label for="todo1">hi</label>
-                    <button type="button" class="destroy" onclick="deleteTodo(this)">×</button>
+                    <button type="button" class="destroy" onclick="deleteTodo(this)"><i class="fa-solid fa-xmark"></i></button>
                 </li>
             </ul>
         </main>
