@@ -1,82 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Simple Todo</title>
-<link rel="stylesheet" href="list.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todos — Tailwind (UI + Labels)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="list.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
+<body class="min-h-screen bg-gray-100 font-sans text-gray-800">
+  <header class="py-12">
+    <h1 class="text-center brand text-6xl sm:text-7xl font-bold tracking-tight">todos</h1>
+  </header>
 
-<body>
+  <main class="mx-auto max-w-2xl px-4">
+    <div class="rounded-md border-2 border-[#cc3a3a] bg-white shadow-sm">
+      <div class="flex items-center gap-3 px-4">
+        <span class="text-brand text-2xl cursor-pointer" onclick="document.getElementById('todolist').focus()">
+          <i class="fa-solid fa-angle-down"></i>
+        </span>
+        <label for="todolist" class="sr-only">What needs to be done?</label>
+        <input id="todolist" type="text" placeholder="What needs to be done?" class="w-full bg-transparent py-4 text-xl placeholder:text-gray-400 outline-none" />
+      </div>
 
-<div class="box">
+      <ul id="list" class="divide-y divide-gray-200"></ul>
 
-<h2>Todo App</h2>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 py-3 border-t">
+        <p id="count" class="text-sm text-gray-600">0 item left</p>
+        <div class="flex items-center gap-2">
+          <span class="rounded px-3 py-1 text-md border border-brand brand">All</span>
+          <span class="rounded px-3 py-1 text-md text-gray-700 brand">Active</span>
+          <span class="rounded px-3 py-1 text-md text-gray-700 brand">Completed</span>
+          <span class="ml-4 text-md brand">Clear completed</span>
+        </div>
+      </div>
+    </div>
+  </main>
 
-<form onsubmit="add();return false;">
-<input id="todolist" placeholder="What needs to be done?">
-</form>
+  <script>
+    let uid = 0;
 
-<ul id="list"></ul>
-<p id="count">0 item left</p>
+    function add(){
+      const input=document.getElementById("todolist");
+      const text=input.value.trim();
+      if(text==="") return;
 
-</div>
+      const li=document.createElement("li");
+      const cb=document.createElement("input");
+      cb.type="checkbox";
+      const id = `todo-${++uid}`;
+      cb.id = id;
 
-<script>
+      const label=document.createElement("label");
+      label.setAttribute("for", id);
+      label.innerText=text;
 
-function add(){
+      const del=document.createElement("button");
+      del.innerText="X";
 
-const input=document.getElementById("todolist");
-const text=input.value.trim();
+      li.className = "flex items-center px-4 py-3 bg-white";
+      cb.className = "h-5 w-5 mr-4 rounded border-2 border-gray-300";
+      label.className = "flex-1 text-lg cursor-pointer select-none";
+      del.className = "ml-3 text-gray-400 hover:brand transition-colors";
 
-if(text==="") return;
+      li.appendChild(cb);
+      li.appendChild(label);
+      li.appendChild(del);
+      document.getElementById("list").appendChild(li);
 
-const li=document.createElement("li");
+      cb.onchange=function(){
+        li.classList.toggle("done",cb.checked);
+        update();
+      };
 
-const cb=document.createElement("input");
-cb.type="checkbox";
+      del.onclick=function(){
+        li.remove();
+        update();
+      };
 
-const span=document.createElement("span");
-span.innerText=text;
+      input.value="";
+      update();
+    }
 
-const del=document.createElement("button");
-del.innerText="X";
+    function update(){
+      const items=document.querySelectorAll("#list li");
+      let left=0;
+      for(let i=0;i<items.length;i++){
+        const checkbox = items[i].querySelector("input[type=checkbox]");
+        if(checkbox && !checkbox.checked){
+          left++;
+        }
+      }
+      document.getElementById("count").innerText= left+" item left";
+    }
 
-li.appendChild(cb);
-li.appendChild(span);
-li.appendChild(del);
-
-document.getElementById("list").appendChild(li);
-
-cb.onchange=function(){
-li.classList.toggle("done",cb.checked);
-update();
-};
-
-del.onclick=function(){
-li.remove();
-update();
-};
-
-input.value="";
-update();
-}
-
-function update(){
-
-const items=document.querySelectorAll("#list li");
-
-let left=0;
-
-for(let i=0;i<items.length;i++){
-if(!items[i].querySelector("input").checked){
-left++;
-}
-}
-
-document.getElementById("count").innerText=
-left+" item left";
-}
-
-</script>
-
+    // Add on Enter
+    document.addEventListener('DOMContentLoaded', function(){
+      const input = document.getElementById('todolist');
+      input.addEventListener('keydown', function(e){
+        if(e.key === 'Enter') add();
+      });
+      update();
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/ca86787c55.js" crossorigin="anonymous"></script>
 </body>
 </html>

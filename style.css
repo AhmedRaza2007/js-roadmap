@@ -1,0 +1,23 @@
+body{
+  font-family: Arial;
+  background:#1e2746;
+  color:white;
+  padding:20px;
+}
+
+.container{
+  display:flex;
+  gap:20px;
+}
+
+ul{
+  list-style:none;
+  width:50%;
+  border:1px solid white;
+  padding:10px;
+}
+
+li{
+  border-bottom:1px solid gray;
+  padding:8px;
+}
