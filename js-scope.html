@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Scope</title>
+</head>
+<body>
+
+<script>
+
+// Global Scope
+
+// Global variable (har jagah access ho sakta hai)
+let globalVar = "I am Global";
+
+function checkGlobal(){
+    console.log(globalVar); // Global variable function ke andar bhi access hota hai
+}
+
+checkGlobal();
+console.log(globalVar); // Bahar bhi access ho raha hai
+
+// Function Scope
+
+function myFunction(){
+    let functionVar = "I am Function Scope"; // Sirf function ke andar chalega
+    console.log(functionVar);
+}
+
+myFunction();
+
+// console.log(functionVar); 
+// Error ayega kyun ke functionVar sirf function ke andar hai
+
+
+// Block Scope (let & const)
+
+if(true){
+    let blockVar = "I am Block Scope";
+    console.log(blockVar); // Yahan access hoga
+}
+
+// console.log(blockVar);
+// Error ayega kyun ke let block ke bahar access nahi hota
+
+// var vs let Difference
+
+if(true){
+    var varVariable = "I am var";
+    let letVariable = "I am let";
+}
+
+console.log(varVariable); 
+//  var block ke bahar bhi chal jata hai
+
+
+// console.log(letVariable);
+//  let block ke bahar access nahi hota
+
+// Hoisting
+var hoistedVar = "I am Hoisted";
+console.log(hoistedVar); // undefined, kyun ke var hoisted hota hai lekin value assign nahi hoti
+
+// console.log(hoistedLet);
+// Error, kyun ke let hoisted nahi hota
+
+// Ab hum let variable ko declare karte hain
+let hoistedLet = "I am not Hoisted";
+console.log(hoistedLet); // Ab access ho jayega kyun ke let variable declare ho chuka hai
+</script>
+
+</body>
+</html>
