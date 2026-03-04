@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript All In One</title>
+</head>
+<body>
+
+<script>
+
+// JavaScript Operators
+
+let a = 10;
+let b = 5;
+
+console.log(a + b);   // Addition
+console.log(a - b);   // Subtraction
+console.log(a * b);   // Multiplication
+console.log(a / b);  // Division
+console.log(a > b);   // Comparison (Greater than)
+console.log(a == b);   // Comparison (Equal to)
+console.log(a != b);   // Comparison (Not equal to)
+
+// JavaScript Numbers
+
+let number = 25.567;
+
+console.log(number.toFixed(2));  // Rounding to 2 decimal places
+console.log(Math.sqrt(25));     // Square root
+console.log(Math.random());   // Random number between 0 and 1
+
+
+// JavaScript Functions
+
+function greet(name){
+    return "Hello " + name;
+}
+
+console.log(greet("Ahmed"));
+
+
+// JavaScript Arrays
+
+let fruits = ["Apple", "Banana", "Mango"];
+
+fruits.push("Orange"); 
+
+console.log(fruits[0]);
+
+
+// JavaScript Objects
+
+let person = {
+    name: "Ahmed",  
+    age: 20,
+    city: "Karachi",
+    sayHi: function(){   
+        return "Hi " + this.name;
+    }
+};
+
+console.log(person.name); 
+console.log(person.sayHi()); 
+
+
+// JavaScript Loops
+
+for(let i = 0; i < fruits.length; i++){
+    console.log(fruits[i]);
+}
+
+// While loop
+
+let count = 0;
+while(count < 5){
+    console.log(count);
+    count++;
+}
+
+ // JavaScript Array Methods
+
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(function(num){
+    console.log(num);
+});
+
+// JavaScript String Methods
+
+const fruitList = ["Apple", "Banana", "Mango", "Orange", "Grapes", "Pineapple"];
+for(let i = 0; i < fruitList.length; i++){
+    console.log(fruitList[i]);
+}
+</script>
+
+</body>
+</html>
