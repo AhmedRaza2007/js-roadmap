@@ -66,6 +66,58 @@ console.log(hoistedVar); // undefined, kyun ke var hoisted hota hai lekin value 
 // Ab hum let variable ko declare karte hain
 let hoistedLet = "I am not Hoisted";
 console.log(hoistedLet); // Ab access ho jayega kyun ke let variable declare ho chuka hai
+
+// Global variable
+let message = "Hello JavaScript";
+function showMessage(){
+    console.log(message); // Global variable function ke andar access ho raha hai
+}
+showMessage();
+console.log(message); // Global variable bahar bhi access ho raha hai
+
+// Function Scope
+function myFunction(){
+    let name = "Ahmed"; // Function scope variable
+    console.log(name); // Yahan chal raha hai
+}
+myFunction();
+
+// console.log(name);
+// Error kyun ke name sirf function ke andar hai
+
+// Block Scope
+if(true){
+    let age = 20; // Block scope variable
+    console.log(age); // Block ke andar access ho raha hai
+}
+// console.log(age);
+// Error kyun ke block ke bahar access nahi
+
+// var Scope
+if(true){
+    var city = "Karachi"; // var block ke bahar bhi access hota hai
+}
+console.log(city); // Yeh chal jayega
+
+
+// Nested Scope
+let outer = "Outside Variable";
+function test(){
+    let inner = "Inside Variable";
+    console.log(outer); // Global variable
+    console.log(inner); // Function variable
+}
+test();
+// console.log(inner);
+// Error kyun ke inner sirf function ke andar hai
+// Same Variable Name
+let number = 10; // Global variable
+function check(){
+    let number = 20; // Function scope variable
+    console.log(number); // 20 print hoga
+}
+check();
+console.log(number); // 10 print hoga
 </script>
 
 </body>
