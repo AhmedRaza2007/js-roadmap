@@ -89,6 +89,58 @@ const fruitList = ["Apple", "Banana", "Mango", "Orange", "Grapes", "Pineapple"];
 for(let i = 0; i < fruitList.length; i++){
     console.log(fruitList[i]);
 }
+
+
+// Global variable
+let school = "ABC School";
+function showSchool(){
+    console.log(school); // Global variable function ke andar access ho raha hai
+}
+showSchool();
+
+
+// Function Scope Example
+
+function studentInfo(){
+    let studentName = "Ali"; // Function scope variable
+    let studentAge = 18;
+    console.log(studentName); // Function ke andar chal raha hai
+    console.log(studentAge);
+}
+studentInfo();
+
+// console.log(studentName);
+// Error kyun ke variable function ke bahar nahi chalega
+
+
+// Block Scope Example
+
+for(let i = 1; i <= 3; i++){
+    let marks = i * 10; // Block scope variable
+    console.log("Marks:", marks);
+}
+// console.log(marks);
+// Error kyun ke marks block ke bahar nahi chalega
+
+// var Scope Example
+
+for(var j = 1; j <= 3; j++){
+    var result = j * 5; // var block ke bahar bhi access hota hai
+}
+console.log(result); // Yeh chal jayega
+
+// Nested Function Scope
+
+function outerFunction(){
+    let outerVar = "Outer";
+    function innerFunction(){
+        let innerVar = "Inner";
+        console.log(outerVar); // Outer variable access ho raha hai
+        console.log(innerVar); // Inner variable
+    }
+    innerFunction();
+}
+outerFunction();
 </script>
 
 </body>
