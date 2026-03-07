@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript forEach Example</title>
+</head>
+<body>
+
+<h2>Colors List</h2>
+<ul id="colors-list"></ul>
+
+<h2>Countries List</h2>
+<ul id="countriesList"></ul>
+
+<script>
+// colors ka array
+const colors = ["Red","Green","Blue","Yellow","Black","White"];
+// countries ka array
+const countries = ["Pakistan","India","USA","UK","Canada","Australia"];
+// colors ul ko select kiya
+const ul = document.getElementById('colors-list');
+// countries ul ko select kiya
+const countriesList = document.getElementById("countriesList");
+
+// forEach loop colors ke liye
+colors.forEach(color => {
+    const li = document.createElement('li'); // li create
+    li.textContent = color; // text set
+    ul.appendChild(li); // ul ke andar add
+});
+// forEach loop countries ke liye
+countries.forEach(country => {
+    const li = document.createElement('li'); // li create
+    li.textContent = country; // text set
+    countriesList.appendChild(li); // ul me add
+});
+</script>
+
+</body>
+</html>
