@@ -11,6 +11,12 @@
 <h2>Countries List</h2>
 <ul id="countriesList"></ul>
 
+<h2>Months List</h2>
+<ul id="monthsList"></ul>
+
+<h2>Students List</h2>
+<ul id="studentsList"></ul>
+
 <script>
 // colors ka array
 const colors = ["Red","Green","Blue","Yellow","Black","White"];
@@ -33,6 +39,28 @@ countries.forEach(country => {
     li.textContent = country; // text set
     countriesList.appendChild(li); // ul me add
 });
+
+// months ka array
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+// months ul ko select kiya
+const monthsList = document.getElementById("monthsList");
+// forEach loop months ke liye
+months.forEach(month => {
+    const li = document.createElement('li'); // li create
+    li.textContent = month; // text set
+    monthsList.appendChild(li); // ul me add
+});
+
+// students ka array
+const students = ["Ahmed","Ali","Sara","Ayesha","Omar"];
+// students ul ko select kiya
+const studentsList = document.getElementById("studentsList");
+// loop students ke liye
+for (let i = 0; i < students.length; i++){
+    const li = document.createElement('li'); // li create
+    li.textContent = students[i]; // text set
+    studentsList.appendChild(li); // ul me add
+}
 </script>
 
 </body>
